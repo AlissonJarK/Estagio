@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.i {
+
+}
+
+.b {
+    margin-top: 5px;
+}
+
+mat-form-field {
+    width: 300px;
+}

@@ -1,0 +1,65 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+  <div class="container">
+    <mat-form-field>
+      <input 
+      required
+      email
+      matInput 
+      class="i" 
+      placeholder="E-mail" 
+      type="email"
+      name="email"
+      ngModel
+      #email="ngModel">
+        <mat-error *ngIf="email.touched && !email.valid && email.errors.required">
+          E-mail is required
+        </mat-error>
+        <mat-error *ngIf="email.touched && !email.valid && email.errors.email">
+          Input a valid email
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input 
+      required
+      minlength="8"
+      maxlength="16"
+      matInput 
+      class="i" 
+      placeholder="Password" 
+      type="password"
+      name="password"
+      ngModel
+      #password="ngModel">
+        <mat-error *ngIf="password.touched && !password.valid && password.errors.required">
+          Password is required
+        </mat-error>
+        <mat-error *ngIf="password.touched && !password.valid && password.errors.minlength">
+          Password's min lenght is 8
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input 
+      required
+      matInput 
+      [matDatepicker]="picker" 
+      placeholder="Birth date"
+      name="date"
+      ngModel
+      #date="ngModel">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="date.touched && !date.valid && date.errors.required">
+          Birth date is required
+        </mat-error>
+    </mat-form-field>
+    <mat-checkbox 
+    required
+    name="agree"
+    ngModel
+    #agree="ngModel">
+      Agree with 
+      <a href="https://policies.google.com/terms?hl=en" target="_blank">terms and conditions</a>
+    </mat-checkbox>
+    <button mat-flat-button color="primary" class="b" [disabled]="f.invalid">Sign-up</button>  
+  </div>
+</form>

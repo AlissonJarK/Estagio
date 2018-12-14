@@ -1,0 +1,21 @@
+<form [formGroup]="form" (ngSubmit)="submit(form)">
+  <div class="container">
+    <mat-form-field>
+      <input matInput formControlName="email" class="i" placeholder="E-mail *" type="email">
+      <mat-error *ngIf="email.touched && email.errors?.required">
+          E-mail is required
+      </mat-error>
+      <mat-error *ngIf="email.touched && email.errors?.email">
+          Input a valid email
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="password" class="i" placeholder="Password *" type="password">
+      <mat-error *ngIf="password.touched && password.errors?.required">
+          Password is required
+      </mat-error>
+      <mat-hint align="end">{{password.value.length}} / 5</mat-hint>
+    </mat-form-field>
+    <button mat-flat-button color="primary" class="b" [disabled]="form.invalid">Login</button>
+  </div>
+</form>

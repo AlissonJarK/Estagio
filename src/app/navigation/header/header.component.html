@@ -1,0 +1,15 @@
+<div class="menu-icon" fxHide.gt-xs>
+  <button mat-icon-button (click)="toggleSidenav()">
+      <mat-icon>menu</mat-icon>
+  </button>
+</div>
+<div class="ivia">
+  <img routerLink="/" class="logo" src="http://www.ivia.com.br/wp-content/uploads/2015/08/LogoIVIABranco.png">
+</div>
+<div fxFlex fxLayoutAlign="flex-end" fxHide.xs>
+  <ul fxLayout fxLayoutGap="10px" class="nav-items">
+      <li><a mat-flat-button color="primary" routerLink="/signup">Signup</a></li>
+      <li><a mat-flat-button color="primary" routerLink="/login">Login</a></li>
+      <li><a mat-flat-button color="primary" routerLink="/training">Training</a></li>
+  </ul>
+</div>
